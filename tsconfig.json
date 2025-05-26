@@ -8,7 +8,6 @@
 
     /* Modules */
     "moduleResolution": "bundler",
-    "baseUrl": "./src",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,

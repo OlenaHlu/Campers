@@ -1,0 +1,30 @@
+.headerContainer {
+  padding: 24px 64px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 450px;
+  border-bottom: 1px solid var(--badges);
+}
+
+.logo {
+  width: 136px;
+  height: 16px;
+}
+
+.navContainer {
+  width: 128px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.link {
+  line-height: 1.5;
+  text-align: center;
+  color: var(--main);
+}
+
+.active {
+  color: var(--button-hover);
+}

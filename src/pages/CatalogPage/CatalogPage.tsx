@@ -1,8 +1,11 @@
+import Header from "../../components/Header/Header";
+
 const CatalogPage = () => {
   return (
-    <div>
-      <p>Catalog Page</p>
-    </div>
+    <>
+      <Header />
+      <main>Catalog</main>
+    </>
   );
 };
 
