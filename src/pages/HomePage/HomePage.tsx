@@ -1,10 +1,13 @@
 import Header from "../../components/Header/Header";
+import HomeContent from "../../components/HomeContent/HomeContent";
 
 const HomePage = () => {
   return (
     <>
       <Header />
-      <main>Home</main>
+      <main>
+        <HomeContent />
+      </main>
     </>
   );
 };

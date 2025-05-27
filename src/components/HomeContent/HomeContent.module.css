@@ -1,0 +1,61 @@
+.homeContainer {
+  background-image: linear-gradient(
+      rgba(115, 61, 42, 0.7),
+      rgba(44, 32, 27, 0.7)
+    ),
+    url(../../assets/Picture@1x.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+@media (min-resolution: 192dpi),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
+  .homeContainer {
+    background-image: url(../../assets/Picture@2x.jpg);
+  }
+}
+
+.informContent {
+  display: flex;
+  flex-direction: column;
+  width: 571px;
+  height: 176px;
+  margin: 260px auto auto 64px;
+}
+
+.homeTitle {
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 0.67;
+  color: var(--inputs);
+  margin-bottom: 16px;
+}
+
+.homeText {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.33;
+  color: var(--inputs);
+  margin-bottom: 40px;
+}
+
+.viewBtn {
+  border-radius: 200px;
+  padding: 16px 48.5px;
+  width: 173px;
+  height: 56px;
+  background-color: var(--button);
+
+  color: var(--white);
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.viewBtn:hover,
+.viewBtn:focus {
+  background-color: var(--button-hover);
+  transform: translateY(-3px) scale(1.02);
+}

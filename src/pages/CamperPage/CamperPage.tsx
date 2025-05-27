@@ -1,8 +1,11 @@
+import Header from "../../components/Header/Header";
+
 const CamperPage = () => {
   return (
-    <div>
-      <p>Camper Page</p>
-    </div>
+    <>
+      <Header />
+      <main>Camper Page</main>
+    </>
   );
 };
 
