@@ -10,16 +10,16 @@ import {
   REGISTER,
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-//імпортувати редюсери
+import { campersReducer } from "./camper/slice";
 
 const rootReducer = combineReducers({
-  //вставити редюсери
+  campers: campersReducer,
 });
 
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: [],
+  whitelist: ["campers"],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
@@ -35,3 +35,4 @@ export const store = configureStore({
 });
 
 export const persistor = persistStore(store);
+export type RootState = ReturnType<typeof store.getState>;
