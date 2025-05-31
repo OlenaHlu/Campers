@@ -5,14 +5,14 @@ export type Camper = {
   rating: number;
   location: string;
   description: string;
-  form: string;
+  form: "alcove" | "fullyIntegrated" | "panelTruck";
   length: string;
   width: string;
   height: string;
   tank: string;
   consumption: string;
-  transmission: string;
-  engine: string;
+  transmission: "automatic" | "manual";
+  engine: "petrol" | "diesel" | "hybrid";
   AC: boolean;
   bathroom: boolean;
   kitchen: boolean;
