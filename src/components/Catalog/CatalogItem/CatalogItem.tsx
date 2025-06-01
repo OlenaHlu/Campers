@@ -1,5 +1,5 @@
 import css from "./CatalogItem.module.css";
-import { Camper } from "../../../redux/camper/types";
+import { Camper } from "../../../redux/types";
 import { Link } from "react-router-dom";
 import Icon from "../../common/Icon";
 import CardEquipments from "../CardEquipments/CardEquipments";

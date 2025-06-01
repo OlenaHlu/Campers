@@ -49,3 +49,19 @@ export type CampersState = {
   error: string | null;
   currentPage: number;
 };
+
+//filters
+export type VehicleEquipment =
+  | "airConditioner"
+  | "automatic"
+  | "kitchen"
+  | "TV"
+  | "bathroom";
+
+export type VehicleType = "panelVan" | "fullyIntegrated" | "alcove";
+
+export type FilterState = {
+  location: string;
+  equipment: VehicleEquipment[];
+  type: VehicleType | null;
+};

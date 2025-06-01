@@ -1,6 +1,6 @@
 import css from "./CatalogList.module.css";
 import CatalogItem from "../CatalogItem/CatalogItem";
-import { Camper } from "../../../redux/camper/types";
+import { Camper } from "../../../redux/types";
 
 type CatalogListProps = {
   campers: Camper[];

@@ -11,15 +11,17 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { campersReducer } from "./camper/slice";
+import { filtersReducer } from "./filters/slice";
 
 const rootReducer = combineReducers({
   campers: campersReducer,
+  filters: filtersReducer,
 });
 
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ["campers"],
+  whitelist: ["campers", "filters"],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

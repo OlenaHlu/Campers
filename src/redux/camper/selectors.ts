@@ -1,5 +1,5 @@
 import { RootState } from "../store";
-import { Camper } from "./types";
+import { Camper } from "../types";
 
 export const selectCampers = (state: RootState): Camper[] =>
   state.campers.items;

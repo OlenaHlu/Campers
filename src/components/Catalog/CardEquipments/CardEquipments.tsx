@@ -1,5 +1,5 @@
 import css from "./CardEquipments.module.css";
-import { Camper } from "../../../redux/camper/types";
+import { Camper } from "../../../redux/types";
 import Icon from "../../common/Icon";
 
 type CardEquipmentsProps = {
