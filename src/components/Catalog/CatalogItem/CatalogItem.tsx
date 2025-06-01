@@ -1,6 +1,8 @@
 import css from "./CatalogItem.module.css";
 import { Camper } from "../../../redux/camper/types";
+import { Link } from "react-router-dom";
 import Icon from "../../common/Icon";
+import CardEquipments from "../CardEquipments/CardEquipments";
 
 type CatalogItemProps = {
   camper: Camper;
@@ -42,8 +44,11 @@ const CatalogItem = ({ camper }: CatalogItemProps) => {
           <p>{camper.location}</p>
         </div>
         <p>{camper.description}</p>
-        <div></div>
+        <div>
+          <CardEquipments camper={camper} />
+        </div>
       </div>
+      <Link to="/catalog/:id">Show more</Link>
     </div>
   );
 };

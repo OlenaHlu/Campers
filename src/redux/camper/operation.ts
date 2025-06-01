@@ -12,8 +12,8 @@ export const fetchCampers = createAsyncThunk<
   try {
     const response = await axios.get<Campers>("/campers", {
       params: {
-        _page: page,
-        _limit: limit,
+        page: page,
+        limit: limit,
       },
     });
     console.log(`Response data from MockAPI for page ${page}:`, response.data);

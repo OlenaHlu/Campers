@@ -47,4 +47,5 @@ export type CampersState = {
   total: number;
   isloading: boolean;
   error: string | null;
+  currentPage: number;
 };

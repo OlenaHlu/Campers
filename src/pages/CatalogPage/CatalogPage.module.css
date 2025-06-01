@@ -3,4 +3,5 @@
   flex-direction: row;
   gap: 64px;
   justify-content: center;
+  padding: 48px 64px;
 }
