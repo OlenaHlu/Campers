@@ -52,11 +52,12 @@ export type CampersState = {
 
 //filters
 export type VehicleEquipment =
-  | "airConditioner"
+  | "AC"
   | "automatic"
   | "kitchen"
   | "TV"
-  | "bathroom";
+  | "bathroom"
+  | "microwave";
 
 export type VehicleType = "panelVan" | "fullyIntegrated" | "alcove";
 
