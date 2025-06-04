@@ -59,7 +59,7 @@ export type VehicleEquipment =
   | "bathroom"
   | "microwave";
 
-export type VehicleType = "panelVan" | "fullyIntegrated" | "alcove";
+export type VehicleType = "panelTruck" | "fullyIntegrated" | "alcove";
 
 export type FilterState = {
   location: string;
