@@ -6,35 +6,34 @@ import Header from "../../components/Header/Header";
 import CatalogList from "../../components/Catalog/CatalogList/CatalogList";
 import FiltersSide from "../../components/FiltersSide/FiltersSide";
 import {
-  selectCampers,
   selectError,
   selectIsLoading,
+  selectDisplayedCampers,
   selectTotalItems,
-  selectCurrentPage,
 } from "../../redux/camper/selectors";
 import { fetchCampers } from "../../redux/camper/operation";
+import { loadNextPage } from "../../redux/camper/slice";
+import { selectFilters } from "../../redux/filters/selectors";
 
 const CatalogPage = () => {
   const dispatch = useAppDispatch();
-  const campers = useAppSelector(selectCampers);
-  const total = useAppSelector(selectTotalItems);
+  const displayedCampers = useAppSelector(selectDisplayedCampers);
   const isLoading = useAppSelector(selectIsLoading);
   const error = useAppSelector(selectError);
-  const currentPage = useAppSelector(selectCurrentPage);
+  const totalFilteredCampers = useAppSelector(selectTotalItems);
+  const currentFilters = useAppSelector(selectFilters);
 
   useEffect(() => {
-    if (campers.length === 0 && !isLoading) {
-      dispatch(fetchCampers({ page: 1, limit: 5 }));
-    }
-  }, [dispatch, campers.length, isLoading]);
+    dispatch(fetchCampers());
+  }, [dispatch]);
 
   const handleLoadMore = () => {
-    if (!isLoading && campers.length < total) {
-      dispatch(fetchCampers({ page: currentPage + 1, limit: 5 }));
+    if (!isLoading && displayedCampers.length < totalFilteredCampers) {
+      dispatch(loadNextPage({ currentFilters }));
     }
   };
 
-  const hasMoreCampers = campers.length < total;
+  const hasMoreCampers = displayedCampers.length < totalFilteredCampers;
 
   return (
     <>
@@ -42,12 +41,19 @@ const CatalogPage = () => {
       <main className={css.catalogContainer}>
         <FiltersSide />
         <div>
-          <CatalogList campers={campers} />
-          {isLoading && <p>Loading more campers...</p>}
-          {error && <p>Error loading campers: {error}</p>}
-          {!isLoading && !error && campers.length === 0 && (
-            <p>No campers found. Try adjusting filters or refresh the page.</p>
+          <CatalogList campers={displayedCampers} />
+          {isLoading && displayedCampers.length === 0 && (
+            <p>Loading campers...</p>
           )}
+          {error && <p>Error loading campers: {error}</p>}
+          {!isLoading &&
+            !error &&
+            displayedCampers.length === 0 &&
+            totalFilteredCampers === 0 && (
+              <p>
+                No campers found matching your criteria. Try adjusting filters.
+              </p>
+            )}
           {hasMoreCampers && !isLoading && (
             <button type="button" onClick={handleLoadMore}>
               Load more

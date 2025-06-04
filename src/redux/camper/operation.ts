@@ -6,17 +6,12 @@ axios.defaults.baseURL = "https://66b1f8e71ca8ad33d4f5f63e.mockapi.io";
 
 export const fetchCampers = createAsyncThunk<
   Campers,
-  { page: number; limit: number },
+  void,
   { rejectValue: string }
->("/campers/fetchAll", async ({ page, limit = 5 }, thunkAPI) => {
+>("/campers/fetchAll", async (_, thunkAPI) => {
   try {
-    const response = await axios.get<Campers>("/campers", {
-      params: {
-        page: page,
-        limit: limit,
-      },
-    });
-    console.log(`Response data from MockAPI for page ${page}:`, response.data);
+    const response = await axios.get<Campers>("/campers");
+    console.log(`Response data from MockAPI (all campers):`, response.data);
     return response.data;
   } catch (error) {
     if (axios.isAxiosError(error)) {

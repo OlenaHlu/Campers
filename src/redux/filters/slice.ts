@@ -16,11 +16,12 @@ const filtersSlice = createSlice({
     },
 
     setEquipmentFilter: (state, action: PayloadAction<VehicleEquipment>) => {
-      const equipment = action.payload;
-      if (state.equipment.includes(equipment)) {
-        state.equipment = state.equipment.filter((item) => item !== equipment);
+      const equipmentId = action.payload;
+      const index = state.equipment.indexOf(equipmentId);
+      if (index === -1) {
+        state.equipment.push(equipmentId);
       } else {
-        state.equipment.push(equipment);
+        state.equipment.splice(index, 1);
       }
     },
 
@@ -28,7 +29,11 @@ const filtersSlice = createSlice({
       state,
       action: PayloadAction<VehicleType | null>
     ) => {
-      state.type = state.type === action.payload ? null : action.payload;
+      if (state.type === action.payload) {
+        state.type = null;
+      } else {
+        state.type = action.payload;
+      }
     },
 
     resetAllFilters: (state) => {

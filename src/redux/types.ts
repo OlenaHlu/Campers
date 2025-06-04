@@ -44,10 +44,12 @@ export type Campers = {
 
 export type CampersState = {
   items: Camper[];
+  displayedCampers: Camper[];
   total: number;
   isloading: boolean;
   error: string | null;
   currentPage: number;
+  itemsPerPage: number;
 };
 
 //filters
