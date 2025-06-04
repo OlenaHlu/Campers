@@ -17,7 +17,7 @@ import { selectFilters } from "../../redux/filters/selectors";
 
 const CatalogPage = () => {
   const dispatch = useAppDispatch();
-  const displayedCampers = useAppSelector(selectDisplayedCampers);
+  const displayedCampers = useAppSelector(selectDisplayedCampers) || [];
   const isLoading = useAppSelector(selectIsLoading);
   const error = useAppSelector(selectError);
   const totalFilteredCampers = useAppSelector(selectTotalItems);
