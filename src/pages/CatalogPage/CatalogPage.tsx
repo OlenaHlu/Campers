@@ -13,7 +13,6 @@ import {
 } from "../../redux/camper/selectors";
 import { fetchCampers } from "../../redux/camper/operation";
 import { loadNextPage } from "../../redux/camper/slice";
-import { selectFilters } from "../../redux/filters/selectors";
 
 const CatalogPage = () => {
   const dispatch = useAppDispatch();
@@ -21,7 +20,6 @@ const CatalogPage = () => {
   const isLoading = useAppSelector(selectIsLoading);
   const error = useAppSelector(selectError);
   const totalFilteredCampers = useAppSelector(selectTotalItems);
-  const currentFilters = useAppSelector(selectFilters);
 
   useEffect(() => {
     dispatch(fetchCampers());
@@ -29,7 +27,7 @@ const CatalogPage = () => {
 
   const handleLoadMore = () => {
     if (!isLoading && displayedCampers.length < totalFilteredCampers) {
-      dispatch(loadNextPage({ currentFilters }));
+      dispatch(loadNextPage());
     }
   };
 

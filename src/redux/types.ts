@@ -50,6 +50,7 @@ export type CampersState = {
   error: string | null;
   currentPage: number;
   itemsPerPage: number;
+  appliedFilters: FilterState;
 };
 
 //filters

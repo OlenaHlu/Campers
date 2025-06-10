@@ -11,6 +11,11 @@ const initialState: CampersState = {
   error: null,
   currentPage: 1,
   itemsPerPage: 5,
+  appliedFilters: {
+    location: "",
+    equipment: [],
+    type: null,
+  },
 };
 
 const handlePending = (state: CampersState) => {
@@ -32,17 +37,18 @@ const campersSlice = createSlice({
   reducers: {
     applyFiltersAndPaginate: (state, action: PayloadAction<FilterState>) => {
       const filters = action.payload;
+      state.appliedFilters = filters;
       const filteredResults = filterCampers(state.items, filters);
       state.total = filteredResults.length;
       state.currentPage = 1;
       state.displayedCampers = filteredResults.slice(0, state.itemsPerPage);
     },
-    loadNextPage: (
-      state,
-      action: PayloadAction<{ currentFilters: FilterState }>
-    ) => {
-      const { currentFilters } = action.payload;
-      const fullFilteredList = filterCampers(state.items, currentFilters);
+    loadNextPage: (state) => {
+      // console.log("loadNextPage action dispatched.");
+      // console.log("Using applied filters:", state.appliedFilters);
+
+      const fullFilteredList = filterCampers(state.items, state.appliedFilters);
+
       const nextPageIndex = state.currentPage;
       const startIndex = nextPageIndex * state.itemsPerPage;
       const endIndex = startIndex + state.itemsPerPage;
@@ -50,7 +56,6 @@ const campersSlice = createSlice({
       const newCampersToDisplay = fullFilteredList.slice(startIndex, endIndex);
 
       state.displayedCampers.push(...newCampersToDisplay);
-
       state.currentPage = nextPageIndex + 1;
     },
   },
