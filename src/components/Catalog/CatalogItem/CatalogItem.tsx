@@ -1,5 +1,8 @@
 import css from "./CatalogItem.module.css";
+import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
 import { Camper } from "../../../redux/types";
+import { toggleFavorite } from "../../../redux/favorites/slice";
+import { selectIsFavorite } from "../../../redux/favorites/selectors";
 import { Link } from "react-router-dom";
 import Icon from "../../common/Icon";
 import CardEquipments from "../CardEquipments/CardEquipments";
@@ -9,10 +12,17 @@ type CatalogItemProps = {
 };
 
 const CatalogItem = ({ camper }: CatalogItemProps) => {
+  const dispatch = useAppDispatch();
+  const isFavorite = useAppSelector(selectIsFavorite(camper.id));
+
   const mainImage =
     camper.gallery && camper.gallery.length > 0
       ? camper.gallery[0].thumb
       : null;
+
+  const handleToggleFav = () => {
+    dispatch(toggleFavorite(camper));
+  };
 
   return (
     <div className={css.itemContainer}>
@@ -28,8 +38,15 @@ const CatalogItem = ({ camper }: CatalogItemProps) => {
           <h3>{camper.name}</h3>
           <div>
             <p>€{camper.price}.00</p>
-            <button>
-              <Icon iconName="heart-black" className={css.icon} />
+            <button
+              type="button"
+              onClick={handleToggleFav}
+              className={css.heartBtn}
+            >
+              <Icon
+                iconName={isFavorite ? "heart-red" : "heart-black"}
+                className={css.icon}
+              />
             </button>
           </div>
         </div>

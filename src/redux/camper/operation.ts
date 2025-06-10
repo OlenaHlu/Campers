@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios, { AxiosError as _AxiosError } from "axios";
-import { Campers } from "../types";
+import { Campers, Camper } from "../types";
 
 axios.defaults.baseURL = "https://66b1f8e71ca8ad33d4f5f63e.mockapi.io";
 
@@ -21,5 +21,23 @@ export const fetchCampers = createAsyncThunk<
       );
     }
     return thunkAPI.rejectWithValue("An unknown error occurred during fetch");
+  }
+});
+
+export const fetchCamperById = createAsyncThunk<
+  Camper,
+  string,
+  { rejectValue: string }
+>("/campers/camperByID", async (id, thunkAPI) => {
+  try {
+    const response = await axios.get<Camper>(`/campers/${id}`);
+    return response.data;
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      return thunkAPI.rejectWithValue(
+        error.message || "Failed to fetch camper details."
+      );
+    }
+    return thunkAPI.rejectWithValue("An unknown error occurred.");
   }
 });
