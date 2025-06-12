@@ -1,5 +1,6 @@
 import Header from "../../components/Header/Header";
 import CamperInfo from "../../components/CamperDetails/CamperInfo/CamperInfo";
+import CamperAddition from "../../components/CamperDetails/CamperAddition/CamperAddition";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
@@ -32,7 +33,12 @@ const CamperPage = () => {
   } else if (!selectedCamper) {
     content = <p>Camper not found or invalid ID.</p>;
   } else {
-    content = <CamperInfo camper={selectedCamper} />;
+    content = (
+      <div>
+        <CamperInfo camper={selectedCamper} />
+        <CamperAddition />
+      </div>
+    );
   }
 
   return (
