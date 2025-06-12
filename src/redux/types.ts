@@ -44,6 +44,7 @@ export type Campers = {
 
 export type CampersState = {
   items: Camper[];
+  selectedCamper: Camper | null;
   displayedCampers: Camper[];
   total: number;
   isloading: boolean;

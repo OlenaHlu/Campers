@@ -65,7 +65,7 @@ const CatalogItem = ({ camper }: CatalogItemProps) => {
           <CardEquipments camper={camper} />
         </div>
       </div>
-      <Link to="/catalog/:id">Show more</Link>
+      <Link to={`/catalog/${camper.id}`}>Show more</Link>
     </div>
   );
 };

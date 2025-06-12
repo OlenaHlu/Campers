@@ -18,3 +18,5 @@ export const selectCurrentPage = (state: RootState) =>
 
 export const selectItemsPerPage = (state: RootState) =>
   state.campers.itemsPerPage;
+
+export const selectCamper = (state: RootState) => state.campers.selectedCamper;

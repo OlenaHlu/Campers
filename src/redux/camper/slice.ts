@@ -1,10 +1,11 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { fetchCampers } from "./operation";
-import { CampersState, Campers, FilterState } from "../types";
+import { fetchCampers, fetchCamperById } from "./operation";
+import { CampersState, Campers, FilterState, Camper } from "../types";
 import { filterCampers } from "../../utils/filterCampers";
 
 const initialState: CampersState = {
   items: [],
+  selectedCamper: null,
   displayedCampers: [],
   total: 0,
   isloading: false,
@@ -76,7 +77,25 @@ const campersSlice = createSlice({
           state.currentPage = 1;
         }
       )
-      .addCase(fetchCampers.rejected, handleRejected);
+      .addCase(fetchCampers.rejected, handleRejected)
+      .addCase(fetchCamperById.pending, (state) => {
+        state.isloading = true;
+        state.error = null;
+        state.selectedCamper = null;
+      })
+      .addCase(
+        fetchCamperById.fulfilled,
+        (state, action: PayloadAction<Camper>) => {
+          state.isloading = false;
+          state.error = null;
+          state.selectedCamper = action.payload;
+        }
+      )
+      .addCase(fetchCamperById.rejected, (state, action) => {
+        state.isloading = false;
+        state.error = action.payload as string;
+        state.selectedCamper = null;
+      });
   },
 });
 
