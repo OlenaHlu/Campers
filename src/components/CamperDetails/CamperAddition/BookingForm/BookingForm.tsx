@@ -2,6 +2,7 @@ import css from "./BookingForm.module.css";
 import * as Yup from "yup";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { toast } from "react-hot-toast";
+import FormikDatePicker from "../../../common/FormikDatePicker";
 
 type BookingFormValues = {
   name: string;
@@ -79,10 +80,12 @@ const BookingForm = () => {
           </div>
 
           <div>
-            <Field
-              className={css.formField}
+            <FormikDatePicker
               name="bookingDate"
-              placeholder="Booking date*"
+              placeholderText="Booking date*"
+              dateFormat="dd/MM/yyyy"
+              className={css.formField}
+              minDate={tomorrow}
             />
             <ErrorMessage
               className={css.errorMessage}

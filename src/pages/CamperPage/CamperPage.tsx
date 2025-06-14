@@ -10,6 +10,7 @@ import {
   selectIsLoading,
   selectError,
 } from "../../redux/camper/selectors";
+import css from "./CamperPage.module.css";
 
 const CamperPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -44,7 +45,7 @@ const CamperPage = () => {
   return (
     <>
       <Header />
-      <main>{content}</main>
+      <main className={css.camperContainer}>{content}</main>
     </>
   );
 };
