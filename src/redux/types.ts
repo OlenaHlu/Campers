@@ -23,7 +23,7 @@ export type Camper = {
   gas: boolean;
   water: boolean;
   gallery: Gallery[];
-  reviews: Reviews[];
+  reviews: Review[];
 };
 
 export type Gallery = {
@@ -31,7 +31,7 @@ export type Gallery = {
   original: string;
 };
 
-export type Reviews = {
+export type Review = {
   reviewer_name: string;
   reviewer_rating: number;
   comment: string;
