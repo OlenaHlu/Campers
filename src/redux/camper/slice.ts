@@ -56,8 +56,10 @@ const campersSlice = createSlice({
 
       const newCampersToDisplay = fullFilteredList.slice(startIndex, endIndex);
 
-      state.displayedCampers.push(...newCampersToDisplay);
-      state.currentPage = nextPageIndex + 1;
+      if (state.displayedCampers.length < state.total) {
+        state.displayedCampers.push(...newCampersToDisplay);
+        state.currentPage = nextPageIndex + 1;
+      }
     },
   },
   extraReducers: (builder) => {
@@ -69,12 +71,13 @@ const campersSlice = createSlice({
           state.isloading = false;
           state.error = null;
           state.items = action.payload.items;
-          state.total = action.payload.items.length;
+          state.total = action.payload.total;
           state.displayedCampers = action.payload.items.slice(
             0,
             state.itemsPerPage
           );
           state.currentPage = 1;
+          state.appliedFilters = { location: "", equipment: [], type: null };
         }
       )
       .addCase(fetchCampers.rejected, handleRejected)

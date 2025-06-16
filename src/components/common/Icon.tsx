@@ -1,8 +1,10 @@
 import symbols from "../../assets/symbol-defs.svg";
+import { CSSProperties } from "react";
 
 type IconProps = {
   iconName: string;
-  className: string;
+  className?: string;
+  style?: CSSProperties;
 };
 
 const Icon = ({ iconName, className }: IconProps) => {

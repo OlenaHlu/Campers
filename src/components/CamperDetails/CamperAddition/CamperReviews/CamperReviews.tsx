@@ -2,6 +2,7 @@ import BookingForm from "../BookingForm/BookingForm";
 import { Review } from "../../../../redux/types";
 import { selectCamper } from "../../../../redux/camper/selectors";
 import { useAppSelector } from "../../../../redux/hooks";
+import RatingStars from "../../../common/RatingStars";
 
 const CamperReviews = () => {
   const camper = useAppSelector(selectCamper);
@@ -18,6 +19,17 @@ const CamperReviews = () => {
           <ul>
             {camper.reviews.map((reviews: Review, index) => (
               <li key={index}>
+                <div>
+                  <div>
+                    <span>{reviews.reviewer_name.charAt(0).toUpperCase()}</span>
+                    <div>
+                      <p>{reviews.reviewer_name}</p>
+                    </div>
+                  </div>
+                  <div>
+                    <RatingStars rating={reviews.reviewer_rating} />
+                  </div>
+                </div>
                 <div>
                   <p>{reviews.comment}</p>
                 </div>
