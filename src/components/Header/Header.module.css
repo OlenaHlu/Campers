@@ -13,7 +13,6 @@
 }
 
 .navContainer {
-  /* width: 128px; */
   display: flex;
   flex-direction: row;
   gap: 32px;
@@ -27,4 +26,16 @@
 
 .active {
   color: var(--button-hover);
+}
+
+.favorites {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+}
+.heart {
+  width: 18px;
+  height: 18px;
 }

@@ -1,6 +1,7 @@
 import css from "./Header.module.css";
 import logo from "../../assets/Logo.svg";
 import { NavLink, useLocation } from "react-router-dom";
+import Icon from "../common/Icon";
 import clsx from "clsx";
 
 const Header = () => {
@@ -23,7 +24,9 @@ const Header = () => {
         </NavLink>
         {!isHomePage && (
           <NavLink className={getClassActiveLink} to="/favorites" end>
-            Favorites
+            <span className={css.favorites}>
+              Favorites <Icon iconName="heart-red" className={css.heart} />
+            </span>
           </NavLink>
         )}
       </nav>
