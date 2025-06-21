@@ -1,4 +1,49 @@
+.formContainer {
+  position: relative;
+  width: 360px;
+  height: 88px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.formLabel {
+  font-weight: 400;
+  color: var(--gray);
+}
+
+input {
+  border-radius: 12px;
+  border: none;
+  padding: 18px 18px 18px 48px;
+  width: 360px;
+  height: 56px;
+  background-color: var(--inputs);
+
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--main);
+}
+
+input::placeholder {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--gray-light);
+}
+
+input:focus {
+  outline: none;
+  border: 1px solid var(--gray);
+}
+
 .iconMap {
+  position: absolute;
   width: 20px;
   height: 20px;
+  bottom: 18px;
+  left: 20px;
 }

@@ -1,4 +1,60 @@
+.equipmentContainer {
+  width: 360px;
+  height: 272px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+.btnsContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 12px;
+  row-gap: 8px;
+  border-top: 1px solid var(--gray-light);
+  padding-top: 24px;
+}
+
+.equipmentButton {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--gray-light);
+  border-radius: 12px;
+  width: 112px;
+  height: 96px;
+
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.01rem;
+  transition: transform 0.3s ease;
+}
+
+.equipmentButton:hover {
+  transform: scale(1.05);
+}
+
 .icon {
-  width: 32px;
-  height: 32px;
+  width: 30px;
+  height: 30px;
+}
+
+.iconMicrowave {
+  stroke: black;
+  fill: white;
+}
+
+.active {
+  border: 1px solid var(--button);
 }

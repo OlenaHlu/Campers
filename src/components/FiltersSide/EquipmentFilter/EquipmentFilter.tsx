@@ -43,7 +43,12 @@ const EquipmentFilter = () => {
     {
       id: "microwave",
       label: "Microwave",
-      iconComponent: <Icon iconName="microwave" className={css.icon} />,
+      iconComponent: (
+        <Icon
+          iconName="microwave"
+          className={`${css.icon} ${css.iconMicrowave}`}
+        />
+      ),
     },
   ];
 
@@ -52,10 +57,9 @@ const EquipmentFilter = () => {
   };
 
   return (
-    <div>
-      <p>Filters</p>
-      <h2>Vehicle equipment</h2>
-      <div>
+    <div className={css.equipmentContainer}>
+      <h2 className={css.title}>Vehicle equipment</h2>
+      <div className={css.btnsContainer}>
         {equipmentOptions.map((option) => (
           <button
             key={option.id}
@@ -67,7 +71,7 @@ const EquipmentFilter = () => {
           >
             {" "}
             {option.iconComponent}
-            <span>{option.label}</span>
+            <span className={css.btnText}>{option.label}</span>
           </button>
         ))}
       </div>

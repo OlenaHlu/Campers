@@ -19,9 +19,14 @@ const FiltersSide = () => {
   return (
     <div className={css.filtersContainer}>
       <LocationFilter />
-      <EquipmentFilter />
-      <TypeFilter />
-      <button onClick={handleSearchClick}>Search</button>
+      <div className={css.eqAndType}>
+        <p className={css.text}>Filters</p>
+        <EquipmentFilter />
+        <TypeFilter />
+      </div>
+      <button onClick={handleSearchClick} className={css.searchBtn}>
+        Search
+      </button>
     </div>
   );
 };

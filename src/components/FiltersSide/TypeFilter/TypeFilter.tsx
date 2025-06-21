@@ -36,9 +36,9 @@ const TypeFilter = () => {
     dispatch(setVehicleTypeFilter(typeId));
   };
   return (
-    <div>
-      <h2>Vehicle type</h2>
-      <div>
+    <div className={css.typeContainer}>
+      <h2 className={css.title}>Vehicle type</h2>
+      <div className={css.btnsContainer}>
         {typeOptions.map((option) => (
           <button
             key={option.id}
