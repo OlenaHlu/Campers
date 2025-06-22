@@ -9,7 +9,7 @@ type CatalogListProps = {
 const CatalogList = ({ campers }: CatalogListProps) => {
   return (
     <div className={css.listContainer}>
-      <ul>
+      <ul className={css.cardList}>
         {campers.map((camper) => (
           <li key={camper.id}>{<CatalogItem camper={camper} />}</li>
         ))}

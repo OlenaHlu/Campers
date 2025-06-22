@@ -33,11 +33,11 @@ const CatalogItem = ({ camper }: CatalogItemProps) => {
           <div className={css.noImage}>No Image Available</div>
         )}
       </div>
-      <div>
-        <div>
-          <h3>{camper.name}</h3>
-          <div>
-            <p>€{camper.price}.00</p>
+      <div className={css.infoContainer}>
+        <div className={css.infoHeader}>
+          <h3 className={css.title}>{camper.name}</h3>
+          <div className={css.priceAndHeart}>
+            <p className={css.price}>€{camper.price}.00</p>
             <button
               type="button"
               onClick={handleToggleFav}
@@ -45,12 +45,12 @@ const CatalogItem = ({ camper }: CatalogItemProps) => {
             >
               <Icon
                 iconName={isFavorite ? "heart-red" : "heart-black"}
-                className={css.icon}
+                className={css.iconHeart}
               />
             </button>
           </div>
         </div>
-        <div>
+        <div className={css.nextInfoContainer}>
           <div>
             <Icon className={css.iconStar} iconName="star-full" />
             <p>
@@ -64,8 +64,8 @@ const CatalogItem = ({ camper }: CatalogItemProps) => {
         <div>
           <CardEquipments camper={camper} />
         </div>
+        <Link to={`/catalog/${camper.id}`}>Show more</Link>
       </div>
-      <Link to={`/catalog/${camper.id}`}>Show more</Link>
     </div>
   );
 };
