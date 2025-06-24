@@ -1,0 +1,33 @@
+.equipmentsContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.iconItem {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100px;
+  padding: 12px 18px;
+  height: 48px;
+  background-color: var(--badges);
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+}
+
+.text {
+  text-align: center;
+  color: var(--main);
+}
+
+.iconChange {
+  stroke: black;
+  fill: white;
+}

@@ -38,7 +38,7 @@ const CatalogPage = () => {
       <Header />
       <main className={css.catalogContainer}>
         <FiltersSide />
-        <div>
+        <div className={css.catalogSide}>
           <CatalogList campers={displayedCampers} />
           {isLoading && displayedCampers.length === 0 && (
             <p>Loading campers...</p>
@@ -53,7 +53,7 @@ const CatalogPage = () => {
               </p>
             )}
           {hasMoreCampers && !isLoading && (
-            <button type="button" onClick={handleLoadMore}>
+            <button type="button" className={css.btn} onClick={handleLoadMore}>
               Load more
             </button>
           )}

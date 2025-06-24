@@ -1,0 +1,12 @@
+.favContainer {
+  display: flex;
+  justify-content: center;
+  padding: 48px 0;
+}
+
+.favList {
+  width: 888px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}

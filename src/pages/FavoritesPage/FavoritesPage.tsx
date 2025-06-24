@@ -1,3 +1,4 @@
+import css from "./FavoritesPage.module.css";
 import Header from "../../components/Header/Header";
 import CatalogItem from "../../components/Catalog/CatalogItem/CatalogItem";
 import { useAppSelector } from "../../redux/hooks";
@@ -8,9 +9,9 @@ const FavoritesPage = () => {
   return (
     <>
       <Header />
-      <main>
+      <main className={css.favContainer}>
         {favoriteCamper.length > 0 ? (
-          <ul>
+          <ul className={css.favList}>
             {favoriteCamper.map((camper) => (
               <li key={camper.id}>{<CatalogItem camper={camper} />}</li>
             ))}
