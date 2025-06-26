@@ -34,7 +34,7 @@ const CatalogPage = () => {
   const hasMoreCampers = displayedCampers.length < totalFilteredCampers;
 
   return (
-    <>
+    <div>
       <Header />
       <main className={css.catalogContainer}>
         <FiltersSide />
@@ -59,7 +59,7 @@ const CatalogPage = () => {
           )}
         </div>
       </main>
-    </>
+    </div>
   );
 };
 

@@ -8,38 +8,41 @@ type CamperInfoProps = {
 
 const CamperInfo = ({ camper }: CamperInfoProps) => {
   return (
-    <div>
-      <div>
-        <h3>{camper.name}</h3>
-        <div>
-          <div>
-            <Icon iconName="star-full" className={css.iconStar} />
-            <p>
-              {camper.rating}({camper.reviews.length} Reviews)
-            </p>
+    <div className={css.camperContainer}>
+      <div className={css.camperInfo}>
+        <h3 className={css.title}>{camper.name}</h3>
+        <div className={css.camperDetails}>
+          <div className={css.ratingAndLocation}>
+            <div className={css.ratingContainer}>
+              <Icon iconName="star-full" className={css.iconStar} />
+              <p className={css.ratingInfo}>
+                {camper.rating}({camper.reviews.length} Reviews)
+              </p>
+            </div>
+            <div className={css.mapContainer}>
+              <Icon iconName="map" className={css.iconMap} />
+              <p className={css.mapInfo}>{camper.location}</p>
+            </div>
           </div>
-          <div>
-            <Icon iconName="map" className={css.iconMap} />
-            <p>{camper.location}</p>
-          </div>
+          <h3 className={css.price}>€{camper.price}.00</h3>
         </div>
-        <h3>€{camper.price}.00</h3>
       </div>
-      <div>
+      <div className={css.photoContainer}>
         {camper.gallery && camper.gallery.length > 0 && (
-          <ul>
+          <ul className={css.photoList}>
             {camper.gallery.map((image, index) => (
-              <li key={index}>
+              <li className={css.photoItem} key={index}>
                 <img
                   src={image.thumb}
                   alt={`Camper ${camper.name} - ${index + 1}`}
+                  className={css.photo}
                 />
               </li>
             ))}
           </ul>
         )}
       </div>
-      <p>{camper.description}</p>
+      <p className={css.camperDesc}>{camper.description}</p>
     </div>
   );
 };

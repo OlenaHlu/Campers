@@ -35,7 +35,7 @@ const CamperPage = () => {
     content = <p>Camper not found or invalid ID.</p>;
   } else {
     content = (
-      <div>
+      <div className={css.content}>
         <CamperInfo camper={selectedCamper} />
         <CamperAddition />
       </div>
