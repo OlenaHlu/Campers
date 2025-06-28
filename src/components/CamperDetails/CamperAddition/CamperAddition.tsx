@@ -9,7 +9,7 @@ const CamperAddition = () => {
   const [activeTab, setActiveTab] = useState<ActiveTab>("features");
   return (
     <div>
-      <div>
+      <div className={css.tabsContainer}>
         <button
           className={`${css.tabButton} ${
             activeTab === "features" ? css.active : ""

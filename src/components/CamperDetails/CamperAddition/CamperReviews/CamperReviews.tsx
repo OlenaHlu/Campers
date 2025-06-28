@@ -1,3 +1,4 @@
+import css from "./CamperReviews.module.css";
 import BookingForm from "../BookingForm/BookingForm";
 import { Review } from "../../../../redux/types";
 import { selectCamper } from "../../../../redux/camper/selectors";
@@ -13,7 +14,7 @@ const CamperReviews = () => {
   }
 
   return (
-    <section>
+    <section className={css.reviewContainer}>
       <div>
         {camper.reviews && camper.reviews.length > 0 ? (
           <ul>

@@ -39,7 +39,7 @@ const BookingForm = () => {
   });
 
   return (
-    <div>
+    <div className={css.formContainer}>
       <Formik<BookingFormValues>
         initialValues={initialValues}
         validationSchema={bookSchema}
@@ -50,66 +50,72 @@ const BookingForm = () => {
         }}
       >
         <Form>
-          <h3>Book your campervan now</h3>
-          <p>Stay connected! We are always ready to help you.</p>
-          <div>
-            <Field
-              className={css.formField}
-              name="name"
-              type="text"
-              placeholder="Name*"
-            />
-            <ErrorMessage
-              className={css.errorMessage}
-              name="name"
-              component="span"
-            />
-          </div>
-          <div>
-            <Field
-              className={css.formField}
-              name="email"
-              type="email"
-              placeholder="Email*"
-            />
-            <ErrorMessage
-              className={css.errorMessage}
-              name="email"
-              component="span"
-            />
-          </div>
+          <h3 className={css.title}>Book your campervan now</h3>
+          <p className={css.text}>
+            Stay connected! We are always ready to help you.
+          </p>
+          <div className={css.inputsContainer}>
+            <div className={css.input}>
+              <Field
+                className={css.formField}
+                name="name"
+                type="text"
+                placeholder="Name*"
+              />
+              <ErrorMessage
+                className={css.errorMessage}
+                name="name"
+                component="span"
+              />
+            </div>
+            <div className={css.input}>
+              <Field
+                className={css.formField}
+                name="email"
+                type="email"
+                placeholder="Email*"
+              />
+              <ErrorMessage
+                className={css.errorMessage}
+                name="email"
+                component="span"
+              />
+            </div>
 
-          <div>
-            <FormikDatePicker
-              name="bookingDate"
-              placeholderText="Booking date*"
-              dateFormat="dd/MM/yyyy"
-              className={css.formField}
-              minDate={tomorrow}
-            />
-            <ErrorMessage
-              className={css.errorMessage}
-              name="bookingDate"
-              component="span"
-            />
+            <div className={css.input}>
+              <FormikDatePicker
+                name="bookingDate"
+                placeholderText="Booking date*"
+                dateFormat="dd/MM/yyyy"
+                className={css.formField}
+                minDate={tomorrow}
+              />
+              <ErrorMessage
+                className={css.errorMessage}
+                name="bookingDate"
+                component="span"
+              />
+            </div>
+            <div>
+              <Field
+                as="textarea"
+                className={`${css.formField} ${css.textarea}`}
+                name="comment"
+                placeholder="Comment"
+                rows={3}
+              />
+              <ErrorMessage
+                className={css.errorMessage}
+                name="comment"
+                component="span"
+              />
+            </div>
           </div>
-          <div>
-            <Field
-              as="textarea"
-              className={css.formField}
-              name="comment"
-              placeholder="Comment"
-              rows={3}
-            />
-            <ErrorMessage
-              className={css.errorMessage}
-              name="comment"
-              component="span"
-            />
+          <div className={css.btnContainer}>
+            <button type="submit" className={css.submitButton}>
+              Send
+            </button>
           </div>
-          <button type="submit" className={css.submitButton}>
-            Send
-          </button>
         </Form>
       </Formik>
     </div>

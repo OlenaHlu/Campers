@@ -1,0 +1,84 @@
+.formContainer {
+  border: 1px solid var(--gray-light);
+  border-radius: 10px;
+  padding: 44px 57px;
+  width: 641px;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+.text {
+  font-weight: 400;
+  color: var(--gray);
+  margin-bottom: 24px;
+}
+
+.inputsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.formField {
+  border-radius: 12px;
+  border: none;
+  padding: 18px;
+  width: 527px;
+  height: 60px;
+  background-color: var(--inputs);
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.formField:focus {
+  outline: none;
+  border: 1px solid var(--gray);
+}
+
+.formField::placeholder {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--gray);
+}
+
+.textarea {
+  height: 118px;
+  resize: none;
+}
+
+.btnContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.submitButton {
+  border-radius: 200px;
+  padding: 16px 60px;
+  width: 166px;
+  height: 56px;
+  background-color: var(--button);
+
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.01rem;
+  color: var(--white);
+  transition: background-color 450ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.3s ease;
+}
+
+.submitButton:hover {
+  background-color: var(--button-hover);
+  transform: scale(1.02);
+}
