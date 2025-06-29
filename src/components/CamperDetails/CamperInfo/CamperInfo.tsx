@@ -1,5 +1,8 @@
 import css from "./CamperInfo.module.css";
 import { Camper } from "../../../redux/types";
+import { useAppSelector, useAppDispatch } from "../../../redux/hooks";
+import { selectIsFavorite } from "../../../redux/favorites/selectors";
+import { toggleFavorite } from "../../../redux/favorites/slice";
 import Icon from "../../common/Icon";
 
 type CamperInfoProps = {
@@ -7,10 +10,29 @@ type CamperInfoProps = {
 };
 
 const CamperInfo = ({ camper }: CamperInfoProps) => {
+  const dispatch = useAppDispatch();
+  const isFavorite = useAppSelector(selectIsFavorite(camper.id));
+
+  const handleToggleFav = () => {
+    dispatch(toggleFavorite(camper));
+  };
+
   return (
     <div className={css.camperContainer}>
       <div className={css.camperInfo}>
-        <h3 className={css.title}>{camper.name}</h3>
+        <div className={css.headerPart}>
+          <h3 className={css.title}>{camper.name}</h3>
+          <button
+            className={css.heartBtn}
+            type="button"
+            onClick={handleToggleFav}
+          >
+            <Icon
+              className={css.iconHeart}
+              iconName={isFavorite ? "heart-red" : "heart-black"}
+            />
+          </button>
+        </div>
         <div className={css.camperDetails}>
           <div className={css.ratingAndLocation}>
             <div className={css.ratingContainer}>

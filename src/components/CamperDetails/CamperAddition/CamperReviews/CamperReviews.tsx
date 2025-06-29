@@ -15,24 +15,24 @@ const CamperReviews = () => {
 
   return (
     <section className={css.reviewContainer}>
-      <div>
+      <div className={css.reviewBlock}>
         {camper.reviews && camper.reviews.length > 0 ? (
-          <ul>
+          <ul className={css.reviewList}>
             {camper.reviews.map((reviews: Review, index) => (
-              <li key={index}>
-                <div>
-                  <div>
-                    <span>{reviews.reviewer_name.charAt(0).toUpperCase()}</span>
-                    <div>
-                      <p>{reviews.reviewer_name}</p>
-                    </div>
+              <li key={index} className={css.reviewItem}>
+                <div className={css.reviewerDetails}>
+                  <div className={css.reviewer}>
+                    <span className={css.initialContainer}>
+                      {reviews.reviewer_name.charAt(0).toUpperCase()}
+                    </span>
                   </div>
-                  <div>
+                  <div className={css.starsContainer}>
+                    <p>{reviews.reviewer_name}</p>
                     <RatingStars rating={reviews.reviewer_rating} />
                   </div>
                 </div>
-                <div>
-                  <p>{reviews.comment}</p>
+                <div className={css.commentContainer}>
+                  <p className={css.comment}>{reviews.comment}</p>
                 </div>
               </li>
             ))}

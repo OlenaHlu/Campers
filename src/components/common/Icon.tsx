@@ -7,9 +7,9 @@ type IconProps = {
   style?: CSSProperties;
 };
 
-const Icon = ({ iconName, className }: IconProps) => {
+const Icon = ({ iconName, className, style }: IconProps) => {
   return (
-    <svg className={className}>
+    <svg className={className} style={style}>
       <use href={`${symbols}#icon-${iconName}`}></use>
     </svg>
   );

@@ -3,3 +3,47 @@
   flex-direction: row;
   gap: 40px;
 }
+
+.reviewBlock {
+  width: 631px;
+}
+
+.reviewList {
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+}
+
+.reviewItem {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.reviewerDetails {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+}
+
+.initialContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 60px;
+  width: 60px;
+  height: 60px;
+  background-color: var(--badges);
+
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.33;
+  color: var(--button);
+}
+
+.comment {
+  font-weight: 400;
+  color: var(--text);
+}

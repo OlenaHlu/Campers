@@ -1,5 +1,6 @@
 import { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
 import ErrorBoundary from "./components/ErrorBoundary/ErrorBoundary";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
@@ -11,6 +12,7 @@ const NotFoundPage = lazy(() => import("./pages/NotFoundPage/NotFoundPage"));
 function App() {
   return (
     <ErrorBoundary>
+      <Toaster />
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
           <Route path="/" element={<HomePage />} />
