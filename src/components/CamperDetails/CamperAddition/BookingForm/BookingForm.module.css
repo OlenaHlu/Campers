@@ -51,6 +51,11 @@
   color: var(--gray);
 }
 
+.errorMessage {
+  color: var(--button-hover);
+  padding-left: 18px;
+}
+
 .textarea {
   height: 118px;
   resize: none;

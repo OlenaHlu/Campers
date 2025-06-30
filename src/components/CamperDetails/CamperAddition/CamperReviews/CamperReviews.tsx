@@ -4,13 +4,13 @@ import { Review } from "../../../../redux/types";
 import { selectCamper } from "../../../../redux/camper/selectors";
 import { useAppSelector } from "../../../../redux/hooks";
 import RatingStars from "../../../common/RatingStars";
+import Loader from "../../../Loader/Loader";
 
 const CamperReviews = () => {
   const camper = useAppSelector(selectCamper);
 
   if (!camper) {
-    // додати лоадер пізніше
-    return <div>Loading camper details...</div>;
+    return <Loader />;
   }
 
   return (
