@@ -10,7 +10,22 @@ const CamperReviews = () => {
   const camper = useAppSelector(selectCamper);
 
   if (!camper) {
-    return <Loader />;
+    return (
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          position: "fixed",
+          top: 0,
+          left: 0,
+          backgroundColor: "rgba(255, 255, 255, 0.8)",
+          zIndex: 9999,
+        }}
+      >
+        <Loader />
+      </div>
+    );
   }
 
   return (

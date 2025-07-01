@@ -10,6 +10,7 @@ import {
   selectIsLoading,
   selectError,
 } from "../../redux/camper/selectors";
+import Loader from "../../components/Loader/Loader";
 import css from "./CamperPage.module.css";
 
 const CamperPage = () => {
@@ -28,7 +29,24 @@ const CamperPage = () => {
   let content;
 
   if (isLoading) {
-    content = <p>Loading camper details...</p>;
+    content = (
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          minHeight: "100vh",
+          width: "100vw",
+          position: "fixed",
+          top: 0,
+          left: 0,
+          backgroundColor: "rgba(255, 255, 255, 0.8)",
+          zIndex: 9999,
+        }}
+      >
+        <Loader width={200} />
+      </div>
+    );
   } else if (error) {
     content = <p>Error loading camper: {error}</p>;
   } else if (!selectedCamper) {
@@ -44,7 +62,13 @@ const CamperPage = () => {
 
   return (
     <>
-      <Header />
+      <div
+        style={{
+          borderBottom: "1px solid var(--badges)",
+        }}
+      >
+        <Header />
+      </div>
       <main className={css.camperContainer}>{content}</main>
     </>
   );

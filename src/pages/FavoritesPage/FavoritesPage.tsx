@@ -8,7 +8,13 @@ const FavoritesPage = () => {
   const favoriteCamper = useAppSelector(selectFavoritesItems);
   return (
     <>
-      <Header />
+      <div
+        style={{
+          borderBottom: "1px solid var(--badges)",
+        }}
+      >
+        <Header />
+      </div>
       <main className={css.favContainer}>
         {favoriteCamper.length > 0 ? (
           <ul className={css.favList}>

@@ -3,13 +3,28 @@ import BookingForm from "../BookingForm/BookingForm";
 import CardEquipments from "../../../Catalog/CardEquipments/CardEquipments";
 import { selectCamper } from "../../../../redux/camper/selectors";
 import { useAppSelector } from "../../../../redux/hooks";
+import Loader from "../../../Loader/Loader";
 
 const CamperFeatures = () => {
   const camper = useAppSelector(selectCamper);
 
   if (!camper) {
-    // додати лоадер пізніше
-    return <div>Loading camper details...</div>;
+    return (
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          position: "fixed",
+          top: 0,
+          left: 0,
+          backgroundColor: "rgba(255, 255, 255, 0.8)",
+          zIndex: 9999,
+        }}
+      >
+        <Loader />
+      </div>
+    );
   }
   return (
     <section className={css.featuresContainer}>

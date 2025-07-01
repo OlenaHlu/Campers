@@ -35,7 +35,9 @@ const CatalogPage = () => {
 
   return (
     <div>
-      <Header />
+      <div className={css.header}>
+        <Header />
+      </div>
       <main className={css.catalogContainer}>
         <FiltersSide />
         <div className={css.catalogSide}>
