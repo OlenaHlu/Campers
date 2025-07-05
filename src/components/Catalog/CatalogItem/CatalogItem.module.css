@@ -53,6 +53,14 @@
   color: var(--main);
 }
 
+.heartBtn {
+  transition: transform 0.3s ease;
+}
+
+.heartBtn:hover {
+  transform: scale(1.05);
+}
+
 .iconHeart {
   width: 26px;
   height: 24px;

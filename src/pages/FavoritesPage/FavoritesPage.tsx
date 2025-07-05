@@ -23,7 +23,15 @@ const FavoritesPage = () => {
             ))}
           </ul>
         ) : (
-          <p>You haven't added any campers to your favorites yet.</p>
+          <p
+            style={{
+              color: "#475467",
+              fontSize: "24px",
+            }}
+          >
+            You haven't added any campers to your{" "}
+            <span style={{ textDecoration: "underline" }}>favorites</span> yet.
+          </p>
         )}
       </main>
     </>
