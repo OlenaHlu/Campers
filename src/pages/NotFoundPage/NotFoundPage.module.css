@@ -1,0 +1,124 @@
+.notFoundContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+  background-color: #2c3e50;
+  color: var(--white);
+  overflow: hidden;
+  position: relative;
+  padding: 20px;
+}
+
+.notFoundHeading {
+  font-size: 150px;
+  color: var(--button);
+  text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+  animation: pulse 2s infinite alternate;
+}
+
+.notFoundMessage {
+  font-size: 40px;
+  margin-bottom: 10px;
+  color: var(--gray-light);
+}
+
+.notFoundSubMessage {
+  font-size: 24px;
+  margin-bottom: 40px;
+  color: var(--gray);
+}
+
+.notFoundButton {
+  padding: 12px 25px;
+  font-size: 18px;
+  background-color: #3498db;
+  color: var(--gray-light);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.notFoundButton:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+}
+
+.lostItem {
+  position: absolute;
+  background-color: rgba(231, 76, 60, 0.5);
+  border-radius: 50%;
+  opacity: 0;
+  animation: floatAndFade 10s infinite ease-out;
+}
+
+.item1 {
+  width: 80px;
+  height: 80px;
+  top: 10%;
+  left: 15%;
+  animation-delay: 0s;
+}
+
+.item2 {
+  width: 120px;
+  height: 120px;
+  top: 80%;
+  left: 5%;
+  background-color: rgba(52, 152, 219, 0.5);
+  animation-delay: 2s;
+}
+
+.item3 {
+  width: 60px;
+  height: 60px;
+  top: 20%;
+  right: 10%;
+  background-color: rgba(46, 204, 113, 0.5);
+  animation-delay: 4s;
+}
+
+.item4 {
+  width: 100px;
+  height: 100px;
+  bottom: 15%;
+  right: 20%;
+  background-color: rgba(241, 196, 15, 0.5);
+  animation-delay: 6s;
+}
+
+.item5 {
+  width: 70px;
+  height: 70px;
+  top: 50%;
+  left: 30%;
+  background-color: rgba(155, 89, 182, 0.5);
+  animation-delay: 8s;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes floatAndFade {
+  0% {
+    transform: translateY(0) rotate(0deg) scale(0.5);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-200px) rotate(360deg) scale(1.2);
+    opacity: 0;
+  }
+}
