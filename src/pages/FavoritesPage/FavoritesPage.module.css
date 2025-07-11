@@ -1,3 +1,7 @@
+.favHeader {
+  border-bottom: 1px solid var(--badges);
+}
+
 .favContainer {
   display: flex;
   justify-content: center;
@@ -9,4 +13,13 @@
   display: flex;
   flex-direction: column;
   gap: 32px;
+}
+
+.favText {
+  color: var(--text);
+  font-size: 24px;
+}
+
+.favSpan {
+  text-decoration: underline;
 }

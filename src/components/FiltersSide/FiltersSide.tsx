@@ -12,7 +12,6 @@ const FiltersSide = () => {
   const currentFilters = useAppSelector(selectFilters);
 
   const handleSearchClick = () => {
-    // console.log("Search button clicked. Applying filters:", currentFilters);
     dispatch(applyFiltersAndPaginate(currentFilters));
     dispatch(resetAllFilters());
   };

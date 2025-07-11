@@ -8,3 +8,7 @@
   flex-direction: column;
   gap: 60px;
 }
+
+.camperHeader {
+  border-bottom: 1px solid var(--badges);
+}

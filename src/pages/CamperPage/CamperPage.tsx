@@ -62,11 +62,7 @@ const CamperPage = () => {
 
   return (
     <>
-      <div
-        style={{
-          borderBottom: "1px solid var(--badges)",
-        }}
-      >
+      <div className={css.camperHeader}>
         <Header />
       </div>
       <main className={css.camperContainer}>{content}</main>

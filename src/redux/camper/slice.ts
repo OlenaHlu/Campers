@@ -45,9 +45,6 @@ const campersSlice = createSlice({
       state.displayedCampers = filteredResults.slice(0, state.itemsPerPage);
     },
     loadNextPage: (state) => {
-      // console.log("loadNextPage action dispatched.");
-      // console.log("Using applied filters:", state.appliedFilters);
-
       const fullFilteredList = filterCampers(state.items, state.appliedFilters);
 
       const nextPageIndex = state.currentPage;

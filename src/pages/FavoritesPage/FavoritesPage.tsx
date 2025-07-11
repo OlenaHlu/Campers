@@ -8,11 +8,7 @@ const FavoritesPage = () => {
   const favoriteCamper = useAppSelector(selectFavoritesItems);
   return (
     <>
-      <div
-        style={{
-          borderBottom: "1px solid var(--badges)",
-        }}
-      >
+      <div className={css.favHeader}>
         <Header />
       </div>
       <main className={css.favContainer}>
@@ -23,14 +19,9 @@ const FavoritesPage = () => {
             ))}
           </ul>
         ) : (
-          <p
-            style={{
-              color: "#475467",
-              fontSize: "24px",
-            }}
-          >
+          <p className={css.favText}>
             You haven't added any campers to your{" "}
-            <span style={{ textDecoration: "underline" }}>favorites</span> yet.
+            <span className={css.favSpan}>favorites</span> yet.
           </p>
         )}
       </main>
